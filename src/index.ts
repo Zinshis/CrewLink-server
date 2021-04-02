@@ -8,11 +8,11 @@ import Tracer from 'tracer';
 import morgan from 'morgan';
 
 const supportedCrewLinkVersions = new Set(['2.0.0', '2.0.1']);
-const httpsEnabled = !!process.env.HTTPS;
+const httpsEnabled = !!process.env.CL_HTTPS;
 
-const port = process.env.PORT || (httpsEnabled ? '443' : '9736');
+const port = process.env.CL_PORT || (httpsEnabled ? '443' : '9736');
 
-const sslCertificatePath = process.env.SSLPATH || process.cwd();
+const sslCertificatePath = process.env.CL_SSLPATH || process.cwd();
 
 const logger = Tracer.colorConsole({
 	format: "{{timestamp}} <{{title}}> {{message}}"
@@ -46,7 +46,7 @@ app.set('view engine', 'pug')
 app.use(morgan('combined'))
 
 let connectionCount = 0;
-let address = process.env.ADDRESS;
+let address = process.env.CL_ADDRESS;
 if (!address) {
 	logger.error('You must set the ADDRESS environment variable.');
 	process.exit(1);
@@ -61,7 +61,7 @@ app.get('/health', (req, res) => {
 		uptime: process.uptime(),
 		connectionCount,
 		address,
-		name: process.env.NAME
+		name: process.env.CL_NAME
 	});
 })
 
@@ -168,5 +168,5 @@ io.on('connection', (socket: socketIO.Socket) => {
 
 server.listen(port);
 (async () => {
-	logger.info('CrewLink Server started: %s', address);
+	logger.info('CrewLink Server started: %s:%s', address, port);
 })();
