@@ -1,0 +1,11 @@
+[System.Environment]::SetEnvironmentVariable('PORT','',[System.EnvironmentVariableTarget]::Machine)
+[System.Environment]::SetEnvironmentVariable('ADDRESS','',[System.EnvironmentVariableTarget]::Machine)
+[System.Environment]::SetEnvironmentVariable('NAME','',[System.EnvironmentVariableTarget]::Machine)
+[System.Environment]::SetEnvironmentVariable('HTTPS','',[System.EnvironmentVariableTarget]::Machine)
+[System.Environment]::SetEnvironmentVariable('SSLPATH','',[System.EnvironmentVariableTarget]::Machine)
+
+[System.Environment]::GetEnvironmentVariable('PORT',[System.EnvironmentVariableTarget]::Machine)
+[System.Environment]::GetEnvironmentVariable('ADDRESS',[System.EnvironmentVariableTarget]::Machine)
+[System.Environment]::GetEnvironmentVariable('NAME',[System.EnvironmentVariableTarget]::Machine)
+[System.Environment]::GetEnvironmentVariable('HTTPS',[System.EnvironmentVariableTarget]::Machine)
+[System.Environment]::GetEnvironmentVariable('SSLPATH',[System.EnvironmentVariableTarget]::Machine)
