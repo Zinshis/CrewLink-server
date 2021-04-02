@@ -26,9 +26,13 @@ head
 			text-decoration: underline;
 		}
 img(src="https://github.com/ottomated/CrewLink/raw/master/logo.png")
-h1 CrewLink Server
-p This is a CrewLink Server running on #{address}.
+h1 Auroria CrewLink Server
+p 
+	| This is a CrewLink Server running on 
+	a(href="https://auroria.westeurope.cloudapp.azure.com", target="_blank") auroria.westeurope.cloudapp.azure.com
+	| .
 p There #{connectionCount === 1 ? 'is' : 'are'} currently #{connectionCount} connected user#{connectionCount === 1 ? '' : 's'}.
+p Remember to vote for Toff
 p 
 	| To launch your own server, 
 	a(href="https://github.com/ottomated/CrewLink-server", target="_blank") click here
